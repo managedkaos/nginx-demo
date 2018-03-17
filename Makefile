@@ -1,6 +1,9 @@
 PORTS=9091 9092 9093 9094
 
 all : check_env $(PORTS)
+	@nginx -s stop || true
+	@nginx -c ./nginx.conf -p .
+	@pandoc -f html http://localhost:8181
 
 check_env :
 	@which nginx   2>&1 > /dev/null
