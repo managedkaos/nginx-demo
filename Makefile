@@ -3,8 +3,9 @@ PORTS=9091 9092 9093 9094
 all : check_env $(PORTS)
 
 check_env :
+	@which nginx   2>&1 > /dev/null
 	@which python3 2>&1 > /dev/null
-	@which pandoc 2>&1 > /dev/null
+	@which pandoc  2>&1 > /dev/null
 
 $(PORTS) :
 	@mkdir -p ./sites/${@}
